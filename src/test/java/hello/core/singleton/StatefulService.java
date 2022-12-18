@@ -4,11 +4,11 @@ public class StatefulService {
 
     private int price;
 
-    public void order(String name, int price) {
-        this.price = price;
-    }
-
-    public int getPrice() {
+    public int order(String name, int price) {
         return price;
     }
+
+//    public int getPrice() {
+//        return price;
+//    }
 }
