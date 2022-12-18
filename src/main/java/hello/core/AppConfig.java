@@ -8,23 +8,28 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
 
 public class AppConfig {
 
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(getMemberRepository());
     }
 
+    @Bean
     private MemoryMemberRepository getMemberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(
             getMemberRepository(), new FixDiscountPolicy()
         );
     }
 
+    @Bean
     public DiscountPolicy discountPolicy() {
         return new RateDiscountPolicy();
     }
